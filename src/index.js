@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter basename="/admin-dashboard">
         <App />
         {/* <GlobalStyle /> */}
-        {/* <Toaster /> */}
+        <ToastContainer />
       </BrowserRouter>
     </PersistGate>
   </ThemeProvider>
