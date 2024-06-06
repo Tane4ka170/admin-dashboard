@@ -1,20 +1,20 @@
-import { useAuth } from 'hooks/useAuth';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getUserInfo } from './redux/auth/authOperations';
-import Loader from 'components/Loader/Loader';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { AuthRoute } from 'hocs/AuthRoute';
-import { PrivateRoute } from 'hocs/PrivateRoute';
-import RegisterPage from 'pages/RegisterPage';
-import LoginPage from 'pages/LoginPage';
-import DashboardPage from 'pages/DashboardPage';
-import OrderPage from 'pages/OrderPage';
-import ProductsPage from 'pages/ProductsPage';
-import SuppliersPage from 'pages/SuppliersPage';
-import CustomersPage from 'pages/CustomersPage';
-import NotFoundPage from 'pages/NotFoundPage';
-import Layout from 'components/Layout/Layout';
+import { useAuth } from './hooks/useAuth';
+import { getUserInfo } from './redux/auth/authOperations';
+import Loader from './components/Loader/Loader';
+import { Layout } from './components/Layout/Layout';
+import RegisterPage from './pages/RegisterPage';
+import { AuthRoute } from './hocs/AuthRoute';
+import LoginPage from './pages/LoginPage';
+import { PrivateRoute } from './hocs/PrivateRoute';
+import DashboardPage from './pages/DashboardPage';
+import OrderPage from './pages/OrderPage';
+import ProductsPage from './pages/ProductsPage';
+import CustomersPage from './pages/CustomersPage';
+import SuppliersPage from './pages/SuppliersPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export const App = () => {
   const dispatch = useDispatch();

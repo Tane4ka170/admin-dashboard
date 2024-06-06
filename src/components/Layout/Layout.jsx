@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Loader } from './Loader';
 import { Container } from './Layout.styled';
 import Header from '../Header/Header';
+import Loader from '../Loader/Loader';
 
 const pathsWithHeader = [
   '/dashboard',

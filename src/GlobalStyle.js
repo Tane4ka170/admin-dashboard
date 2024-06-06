@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import 'modern-normalize';
-import '../index.css';
+import './index.css';
 
 export const GlobalStyle = createGlobalStyle`
   *,
