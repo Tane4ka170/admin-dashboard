@@ -8,7 +8,7 @@ import {
   NavigationContainer,
   NavigationLink,
 } from './Sidebar.styled';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const Sidebar = ({ onClose }) => {
   const dispatch = useDispatch();

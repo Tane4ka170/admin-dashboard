@@ -14,7 +14,7 @@ import { signOutUser } from '../../redux/auth/authOperations';
 import logo from '../../assets/logo.png';
 import sprite from '../../assets/sprite.svg';
 import Sidebar from '../Sidebar/Sidebar';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const pageTitleMap = {
   '/dashboard': 'Dashboard',
