@@ -14,6 +14,7 @@ import { signOutUser } from '@/redux/auth/authOperations';
 import logo from '../../assets/logo.png';
 import sprite from '../../assets/sprite.svg';
 import Sidebar from '../Sidebar/Sidebar';
+import ReactTooltip from 'react-tooltip';
 
 const pageTitleMap = {
   '/dashboard': 'Dashboard',
@@ -76,24 +77,11 @@ export const Header = () => {
             <use href={`${sprite}#icon-logout`} />
           </svg>
         </LogoutButton>
-        <div
-          style={{
-            display: 'none',
-            position: 'absolute',
-            top: '100%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: '#fff',
-            border: '1px solid #ccc',
-            padding: '10px',
-            borderRadius: '4px',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
-            zIndex: 1000,
-          }}
-        >
+        <div data-tip="Leaving already?" data-for="logoutTooltip">
           Leaving already?
         </div>
       </div>
+      <ReactTooltip id="logoutTooltip" place="top" effect="solid" />
     </HeaderContainer>
   );
 };
