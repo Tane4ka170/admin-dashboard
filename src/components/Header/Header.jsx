@@ -29,7 +29,7 @@ const getPageTitle = location => {
   return pageTitleMap[pathname] || 'Unknown page';
 };
 
-export const Header = () => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -85,3 +85,5 @@ export const Header = () => {
     </HeaderContainer>
   );
 };
+
+export default Header;
