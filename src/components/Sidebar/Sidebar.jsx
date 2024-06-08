@@ -10,7 +10,7 @@ import {
 } from './Sidebar.styled';
 import ReactTooltip from 'react-tooltip';
 
-export const Sidebar = ({ onClose }) => {
+const Sidebar = ({ onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -55,3 +55,5 @@ export const Sidebar = ({ onClose }) => {
     </NavigationContainer>
   );
 };
+
+export default Sidebar;
