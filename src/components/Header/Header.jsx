@@ -9,8 +9,8 @@ import {
   PageSubtitle,
   PageTitle,
 } from './Header.styled';
-import { useAuth } from '@/hooks/useAuth';
-import { signOutUser } from '@/redux/auth/authOperations';
+import { useAuth } from '../../hooks/useAuth';
+import { signOutUser } from '../../redux/auth/authOperations';
 import logo from '../../assets/logo.png';
 import sprite from '../../assets/sprite.svg';
 import Sidebar from '../Sidebar/Sidebar';
