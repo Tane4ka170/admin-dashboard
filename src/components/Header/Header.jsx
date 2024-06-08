@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import { SidebarMenu } from '../SidebarMenu/SidebarMenu';
-import logo from '../../assets/logo.png';
-import sprite from '../../assets/sprite.svg';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { logOut } from '../../redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
-import { useAuth } from '../../hooks/useAuth';
 import {
   HeaderContainer,
   Logo,
@@ -14,6 +9,11 @@ import {
   PageSubtitle,
   PageTitle,
 } from './Header.styled';
+import { useAuth } from '@/hooks/useAuth';
+import { signOutUser } from '@/redux/auth/authOperations';
+import logo from '../../assets/logo.png';
+import sprite from '../../assets/sprite.svg';
+import Sidebar from '../Sidebar/Sidebar';
 
 const pageTitleMap = {
   '/dashboard': 'Dashboard',
@@ -36,7 +36,7 @@ export const Header = () => {
   const location = useLocation();
 
   const handleLogout = () => {
-    dispatch(logOut());
+    dispatch(signOutUser());
     navigate('/login');
   };
 
@@ -59,7 +59,7 @@ export const Header = () => {
           <use href={`${sprite}#icon-${menuOpen ? 'close' : 'menu'}`} />
         </svg>
       </MenuButton>
-      {menuOpen && <SidebarMenu onClose={closeMenu} />}
+      {menuOpen && <Sidebar onClose={closeMenu} />}
 
       <NavLink to="/">
         <Logo src={logo} alt="logo" />
