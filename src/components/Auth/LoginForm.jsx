@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import logo from '../../assets/logo_log.png';
-import pillImage from '../../assets/pill.png';
-import iconSet from '../../assets/sprite.svg';
+import PageContainer from 'components/SharedComponents/PageContainer/PageContainer';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { registerUser } from '../../redux/auth/authOperations';
-import PageContainer from 'components/SharedComponents/PageContainer/PageContainer';
+import { authenticateUser } from '../../redux/auth/authOperations';
+import * as yup from 'yup';
 import {
   BackgroundImage,
   FormContainer,
@@ -18,9 +14,13 @@ import {
   LogoContainer,
   StyledForm,
   StyledInput,
+  StyledLink,
   TogglePasswordButton,
 } from './Auth.styled';
 import Button from 'components/SharedComponents/Button/Button';
+import logo from '../../assets/logo_log.png';
+import pill from '../../assets/pill.png';
+import sprite from '../../assets/sprite.svg';
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -28,19 +28,18 @@ const validationSchema = yup.object().shape({
     .email('Invalid email address')
     .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Wrong email. Try again...')
     .trim()
-    .required('Email is required'),
+    .required('Email is a required field'),
   password: yup
     .string()
     .min(7, 'Minimum 7 characters')
     .max(20, 'Maximum 20 characters')
     .trim()
-    .required('Password is required'),
+    .required('Password is a required field'),
 });
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
@@ -53,49 +52,49 @@ export const RegisterForm = () => {
 
   const onSubmit = async data => {
     try {
-      await dispatch(registerUser(data)).unwrap();
-      toast.success('Registration successful!');
+      await dispatch(authenticateUser(data)).unwrap();
+      toast.success('Welcome back!');
       reset();
     } catch (error) {
-      toast.error(error.message);
+      console.error(error.message);
     }
   };
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible(prevState => !prevState);
+    setIsPasswordVisible(prevVisibility => !prevVisibility);
   };
 
   return (
     <PageContainer>
       <LogoContainer>
-        <img src={logo} alt="E-Pharmacy Logo" />
+        <img src={logo} alt="logo" />
         <span>E-Pharmacy</span>
       </LogoContainer>
       <FormContainer>
         <FormTitle>
           <h1>
             Your medication, delivered. Say goodbye to all{' '}
-            <span>your healthcare</span> worries with us
+            <span>your healthcare</span> worries with us.
           </h1>
-          <img src={pillImage} alt="Pill" />
+          <img src={pill} alt="pill" />
         </FormTitle>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
           <FormInputWrapper>
             <StyledInput
-              {...register('email')}
+              {...register('email', { autoComplete: 'off' })}
               placeholder="Email address"
               style={{ borderColor: errors.email ? '#E85050' : '#59b17a' }}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            <p>{errors.email?.message}</p>
           </FormInputWrapper>
           <FormInputWrapper>
             <StyledInput
-              {...register('password')}
+              {...register('password', { autoComplete: 'off' })}
               type={isPasswordVisible ? 'text' : 'password'}
               placeholder="Password"
               style={{ borderColor: errors.password ? '#E85050' : '#59b17a' }}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            <p>{errors.password?.message}</p>
             <TogglePasswordButton
               onClick={togglePasswordVisibility}
               type="button"
@@ -104,16 +103,15 @@ export const RegisterForm = () => {
                 <use
                   href={
                     isPasswordVisible
-                      ? `${iconSet}#icon-eye`
-                      : `${iconSet}#icon-eye-off`
+                      ? `${sprite}#icon-eye`
+                      : `${sprite}#icon-eye-off`
                   }
                 />
               </svg>
             </TogglePasswordButton>
           </FormInputWrapper>
-          <Button prop="Register" $variant="login">
-            Register
-          </Button>
+          <Button prop="Log in" $variant="login" />
+          <StyledLink to="/register">First time? Sign up</StyledLink>
         </StyledForm>
       </FormContainer>
       <BackgroundImage />
