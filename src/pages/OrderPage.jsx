@@ -1,7 +1,6 @@
+import { Orders } from 'components/Orders/Orders';
 import React from 'react';
 
-const OrderPage = () => {
-  return <div>OrderPage</div>;
-};
-
-export default OrderPage;
+export default function OrderPage() {
+  return <Orders />;
+}
