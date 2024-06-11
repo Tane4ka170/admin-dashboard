@@ -8,6 +8,7 @@ import { fetchProducts } from 'redux/pharmacy/pharmacyOperations';
 import { ButtonAdd, FlexWrap, FormContainer } from './ProductManager.styled';
 import Button from 'components/SharedComponents/Button/Button';
 import sprite from '../../assets/sprite.svg';
+import { ProductInventory } from './ProductInventory/ProductInventory';
 
 export const ProductManager = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -66,7 +67,7 @@ export const ProductManager = () => {
             <span>Add a new product</span>
           </FlexWrap>
         </FormContainer>
-        {/* <ProductTable /> */}
+        <ProductInventory />
       </PageContainer>
       {/* <ModalWrapper isOpen={isModalVisible} onRequestClose={hideModal}>
         <AddProductModal onRequestClose={hideModal} />

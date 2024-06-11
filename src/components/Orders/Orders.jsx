@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fetchOrders } from '../../redux/pharmacy/pharmacyOperations';
 import { FormWrapper, InputField } from './Orders.styled';
 import Button from 'components/SharedComponents/Button/Button';
-import { OrdersOverview } from './OrdersTable/OrdersOverview';
+import { OrdersOverview } from './OrdersOverview/OrdersOverview';
 
 export const Orders = () => {
   const [isFilterActive, setIsFilterActive] = useState(false);
