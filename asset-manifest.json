@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/admin-dashboard/static/css/main.9b579313.css",
-    "main.js": "/admin-dashboard/static/js/main.a87971f4.js",
+    "main.css": "/admin-dashboard/static/css/main.d0d4f22f.css",
+    "main.js": "/admin-dashboard/static/js/main.655d5dd9.js",
     "static/media/Inter-SemiBold.ttf": "/admin-dashboard/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
     "static/media/Inter-Medium.ttf": "/admin-dashboard/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
     "static/media/Inter-Regular.ttf": "/admin-dashboard/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
@@ -11,11 +11,11 @@
     "static/media/pill.png": "/admin-dashboard/static/media/pill.269f984b8b3db1a033a7.png",
     "static/media/sprite.svg": "/admin-dashboard/static/media/sprite.538b0f7a9df53e307037f98cd58c8e68.svg",
     "index.html": "/admin-dashboard/index.html",
-    "main.9b579313.css.map": "/admin-dashboard/static/css/main.9b579313.css.map",
-    "main.a87971f4.js.map": "/admin-dashboard/static/js/main.a87971f4.js.map"
+    "main.d0d4f22f.css.map": "/admin-dashboard/static/css/main.d0d4f22f.css.map",
+    "main.655d5dd9.js.map": "/admin-dashboard/static/js/main.655d5dd9.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b579313.css",
-    "static/js/main.a87971f4.js"
+    "static/css/main.d0d4f22f.css",
+    "static/js/main.655d5dd9.js"
   ]
 }
