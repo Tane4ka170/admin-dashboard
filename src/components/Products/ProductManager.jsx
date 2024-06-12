@@ -9,6 +9,8 @@ import { ButtonAdd, FlexWrap, FormContainer } from './ProductManager.styled';
 import Button from 'components/SharedComponents/Button/Button';
 import sprite from '../../assets/sprite.svg';
 import { ProductInventory } from './ProductInventory/ProductInventory';
+import { ModalWrapper } from 'components/Modal/ModalWrapper';
+import { AddProductModal } from 'components/Modal/AddProductModal/AddProductModal';
 
 export const ProductManager = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -69,9 +71,9 @@ export const ProductManager = () => {
         </FormContainer>
         <ProductInventory />
       </PageContainer>
-      {/* <ModalWrapper isOpen={isModalVisible} onRequestClose={hideModal}>
+      <ModalWrapper isOpen={isModalVisible} onRequestClose={hideModal}>
         <AddProductModal onRequestClose={hideModal} />
-      </ModalWrapper> */}
+      </ModalWrapper>
     </>
   );
 };
