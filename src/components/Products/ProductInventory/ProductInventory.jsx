@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchProducts,
   removeProduct,
-} from 'redux/pharmacy/pharmacyOperations';
+} from '../../../redux/pharmacy/pharmacyOperations';
 import { selectProducts } from 'redux/pharmacy/pharmacySelectors';
 import { ActionButtonWrapper, BtnChange } from './ProductInventory.styled';
 import sprite from '../../../assets/sprite.svg';
