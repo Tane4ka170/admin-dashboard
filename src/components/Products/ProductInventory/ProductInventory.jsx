@@ -19,6 +19,8 @@ import { ActionButtonWrapper, BtnChange } from './ProductInventory.styled';
 import sprite from '../../../assets/sprite.svg';
 import noImg from '../../../assets/noImg.jpg';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { ModalWrapper } from 'components/Modal/ModalWrapper';
+import { EditProductModal } from 'components/Modal/EditProductModal/EditProductModal';
 
 export const ProductInventory = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -142,12 +144,12 @@ export const ProductInventory = () => {
         </button>
       </PaginationWrapper>
       {isModalVisible && (
-        // <ModalWrapper isOpen={isModalVisible} onRequestClose={hideModal}>
-        //   <EditProductModal
-        //     onRequestClose={hideModal}
-        //     product={currentProduct}
-        //   />
-        // </ModalWrapper>
+        <ModalWrapper isOpen={isModalVisible} onRequestClose={hideModal}>
+          <EditProductModal
+            onRequestClose={hideModal}
+            product={currentProduct}
+          />
+        </ModalWrapper>
       )}
     </>
   );
