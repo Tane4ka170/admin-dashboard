@@ -4,7 +4,7 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { fetchProducts } from 'redux/pharmacy/pharmacyOperations';
+import { fetchProducts } from '../../redux/pharmacy/pharmacyOperations';
 import { ButtonAdd, FlexWrap, FormContainer } from './ProductManager.styled';
 import Button from 'components/SharedComponents/Button/Button';
 import sprite from '../../assets/sprite.svg';
