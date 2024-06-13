@@ -114,3 +114,20 @@
 .custom-select__option:is(:hover, :focus) {
   color: #ffffff !important;
 }
+
+.react-datepicker {
+  background-color: #59b17a;
+}
+
+.react-datepicker__day {
+  color: #f9f9f9;
+}
+
+.react-datepicker__day--today {
+  border: 2px solid #e85050;
+}
+
+.react-datepicker__input-container input:hover {
+  border-color: #1d1e211a;
+  box-shadow: none;
+}
