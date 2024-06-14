@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   NotFoundContainer,
   NotFoundIcon,
@@ -9,10 +9,10 @@ import {
 import { ReactComponent as NotFoundSVG } from '../../assets/not-found.svg';
 
 const NotFound = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const goToHome = () => {
-    history.push('/');
+    navigate('/');
   };
 
   return (
