@@ -8,9 +8,10 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { fetchSuppliers } from 'redux/pharmacy/pharmacyOperations';
+import { fetchSuppliers } from '../../redux/pharmacy/pharmacyOperations';
+import { TableOfSuppliers } from './TableOfSuppliers/TableOfSuppliers';
 
-export const SuppliersPage = () => {
+export const Suppliers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [changeButton, setChangeButton] = useState(false);
   const dispatch = useDispatch();

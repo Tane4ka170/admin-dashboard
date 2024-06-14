@@ -1,11 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { parse } from 'date-fns';
 import Select from 'react-select';
-import { format } from 'date-fns';
 import * as yup from 'yup';
-import { createSupplier } from '../../../redux/pharmacy/pharmacyOperations';
+import { modifySupplier } from '../../../redux/pharmacy/pharmacyOperations';
 import {
   ButtonContainer,
   DatePickerStyled,
@@ -13,21 +12,19 @@ import {
   ModalContent,
 } from '../Modal.styled';
 import { FormInputWrapper, StyledInput } from 'components/Auth/Auth.styled';
+import { formatDate } from 'helpers/formatDate';
 import Button from 'components/SharedComponents/Button/Button';
 
 const supplierSchema = yup.object({
-  name: yup.string().trim().required('Suppliers is required field'),
-  address: yup.string().trim().required('Address is required field'),
-  suppliers: yup.string().trim().required('Company is required field'),
-  date: yup.string().required('Delivery is required field'),
-  amount: yup.string().required('Amount is required field'),
-  status: yup
-    .string()
-    .oneOf(['Active', 'Deactive'], 'Invalid Job Type')
-    .required('Status is required field'),
+  name: yup.string().trim(),
+  address: yup.string().trim(),
+  suppliers: yup.string().trim(),
+  date: yup.date(),
+  amount: yup.string(),
+  status: yup.string(),
 });
 
-export const AddNewSuppliers = ({ onRequestClose }) => {
+export const EditSuppliers = ({ onRequestClose, item }) => {
   const dispatch = useDispatch();
 
   const {
@@ -40,8 +37,10 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
     resolver: yupResolver(supplierSchema),
   });
 
+  const id = item._id;
+
   const onSubmit = data => {
-    dispatch(createSupplier(data));
+    dispatch(modifySupplier({ id, supplierData: data }));
     reset();
     onRequestClose();
   };
@@ -55,13 +54,14 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
 
   return (
     <ModalContent>
-      <h2>Add a new suppliers</h2>
+      <h2>Edit data</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormInputWrapper>
           <StyledInput
             {...register('name', { autoComplete: 'off' })}
             placeholder="Suppliers Info"
             style={{ borderColor: errors.name && '#E85050' }}
+            defaultValue={item.name}
           />
           <p>{errors.name?.message}</p>
         </FormInputWrapper>
@@ -71,6 +71,7 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
             {...register('address', { autoComplete: 'off' })}
             placeholder="Address"
             style={{ borderColor: errors.address && '#E85050' }}
+            defaultValue={item.address}
           />
           <p>{errors.address?.message}</p>
         </FormInputWrapper>
@@ -80,6 +81,7 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
             {...register('suppliers', { autoComplete: 'off' })}
             placeholder="Company"
             style={{ borderColor: errors.suppliers && '#E85050' }}
+            defaultValue={item.suppliers}
           />
           <p>{errors.suppliers?.message}</p>
         </FormInputWrapper>
@@ -88,20 +90,17 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
           <Controller
             control={control}
             name="date"
-            rules={{ required: 'Delivery is required field' }}
-            render={({ field, fieldState }) => {
+            render={({ field }) => {
               return (
                 <DatePickerStyled
-                  status={fieldState.error ? 'error' : undefined}
-                  ref={field.ref}
-                  name={field.name}
-                  onBlur={field.onBlur}
-                  placeholder="Delivery date"
-                  value={field.value ? format(field.value, dateFormat) : ''}
-                  format={dateFormat}
-                  onChange={date => {
-                    field.onChange(date ? date.toISOString() : null);
-                  }}
+                  selected={
+                    field.value
+                      ? parse(field.value, dateFormat, new Date())
+                      : parse(item.date, dateFormat, new Date())
+                  }
+                  onChange={date => field.onChange(date)}
+                  dateFormat={dateFormat}
+                  placeholderText={formatDate(item.date)}
                 />
               );
             }}
@@ -114,6 +113,7 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
             {...register('amount', { autoComplete: 'off' })}
             placeholder="Amount"
             style={{ borderColor: errors.amount && '#E85050' }}
+            defaultValue={item.amount}
           />
           <p>{errors.amount?.message}</p>
         </FormInputWrapper>
@@ -122,17 +122,20 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
           <Controller
             control={control}
             name="status"
-            rules={{ required: 'Status is required field' }}
-            render={({ fieldState, field: { onChange, name, ref, value } }) => (
+            render={({ field }) => (
               <Select
                 classNamePrefix="custom-select"
-                status={fieldState.error ? 'error' : undefined}
-                name={name}
-                ref={ref}
+                name={field.name}
+                ref={field.ref}
                 options={options}
-                placeholder="Status"
-                value={options.find(option => option.value === value)}
-                onChange={selectedOption => onChange(selectedOption?.value)}
+                placeholder={item.status}
+                value={
+                  options.find(option => option.value === field.value) ||
+                  options.find(option => option.value === item.status)
+                }
+                onChange={selectedOption =>
+                  field.onChange(selectedOption.value)
+                }
               />
             )}
           />
@@ -140,14 +143,10 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
         </FormInputWrapper>
 
         <ButtonContainer>
-          <Button prop="Add" $variant="add" />
+          <Button prop="Save" $variant="save" />
           <Button prop="Cancel" $variant="cancel" onClick={() => reset()} />
         </ButtonContainer>
       </Form>
     </ModalContent>
   );
-};
-
-AddNewSuppliers.propTypes = {
-  onRequestClose: PropTypes.func,
 };

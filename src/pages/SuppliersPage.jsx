@@ -1,7 +1,6 @@
+import { Suppliers } from 'components/Suppliers/Suppliers';
 import React from 'react';
 
-const SuppliersPage = () => {
-  return <div>SuppliersPage</div>;
-};
-
-export default SuppliersPage;
+export default function SuppliersPage() {
+  return <Suppliers />;
+}
