@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/admin-dashboard/static/css/main.ef09812e.css",
-    "main.js": "/admin-dashboard/static/js/main.dd9cda40.js",
+    "main.js": "/admin-dashboard/static/js/main.f6c10f76.js",
     "static/media/Inter-SemiBold.ttf": "/admin-dashboard/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
     "static/media/Inter-Medium.ttf": "/admin-dashboard/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
     "static/media/Inter-Regular.ttf": "/admin-dashboard/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
@@ -11,11 +11,12 @@
     "static/media/pill.png": "/admin-dashboard/static/media/pill.269f984b8b3db1a033a7.png",
     "static/media/sprite.svg": "/admin-dashboard/static/media/sprite.538b0f7a9df53e307037f98cd58c8e68.svg",
     "index.html": "/admin-dashboard/index.html",
+    "static/media/not-found.svg": "/admin-dashboard/static/media/not-found.39e6a99874eca3710f56a8cebffe1b0d.svg",
     "main.ef09812e.css.map": "/admin-dashboard/static/css/main.ef09812e.css.map",
-    "main.dd9cda40.js.map": "/admin-dashboard/static/js/main.dd9cda40.js.map"
+    "main.f6c10f76.js.map": "/admin-dashboard/static/js/main.f6c10f76.js.map"
   },
   "entrypoints": [
     "static/css/main.ef09812e.css",
-    "static/js/main.dd9cda40.js"
+    "static/js/main.f6c10f76.js"
   ]
 }
