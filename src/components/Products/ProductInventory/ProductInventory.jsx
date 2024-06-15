@@ -15,10 +15,15 @@ import {
   removeProduct,
 } from '../../../redux/pharmacy/pharmacyOperations';
 import { selectProducts } from '../../../redux/pharmacy/pharmacySelectors';
-import { ActionButtonWrapper, BtnChange } from './ProductInventory.styled';
+import {
+  ActionButtonWrapper,
+  EditButton,
+  DeleteButton,
+  TooltipWrapper,
+  TooltipText,
+} from './ProductInventory.styled';
 import sprite from '../../../assets/sprite.svg';
 import noImg from '../../../assets/noImg.jpg';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { ModalWrapper } from 'components/Modal/ModalWrapper';
 import { EditProductModal } from 'components/Modal/EditProductModal/EditProductModal';
 
@@ -88,35 +93,25 @@ export const ProductInventory = () => {
                 <td>{product.price}</td>
                 <td>
                   <ActionButtonWrapper>
-                    <button
-                      data-tip="Click to edit"
-                      data-for="editTooltip"
-                      onClick={() => showEditModal(product)}
-                    >
-                      <BtnChange>
+                    <TooltipWrapper>
+                      <EditButton onClick={() => showEditModal(product)}>
                         <svg>
                           <use href={`${sprite}#icon-edit`} />
                         </svg>
-                      </BtnChange>
-                    </button>
-                    <ReactTooltip id="editTooltip" place="top" effect="solid" />
+                      </EditButton>
+                      <TooltipText>Click to edit</TooltipText>
+                    </TooltipWrapper>
 
-                    <button
-                      data-tip="You`re about to delete an item!"
-                      data-for="deleteTooltip"
-                      onClick={() => dispatch(removeProduct(product._id))}
-                    >
-                      <BtnChange>
+                    <TooltipWrapper>
+                      <DeleteButton
+                        onClick={() => dispatch(removeProduct(product._id))}
+                      >
                         <svg>
                           <use href={`${sprite}#icon-trash`} />
                         </svg>
-                      </BtnChange>
-                    </button>
-                    <ReactTooltip
-                      id="deleteTooltip"
-                      place="top"
-                      effect="solid"
-                    />
+                      </DeleteButton>
+                      <TooltipText>You`re about to delete an item!</TooltipText>
+                    </TooltipWrapper>
                   </ActionButtonWrapper>
                 </td>
               </tr>
