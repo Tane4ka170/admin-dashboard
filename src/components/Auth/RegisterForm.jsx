@@ -88,7 +88,7 @@ export const RegisterForm = () => {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </FormInputWrapper>
-          <FormInputWrapper>
+          <FormInputWrapper id="password">
             <StyledInput
               {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}

@@ -87,7 +87,7 @@ export const LoginForm = () => {
             />
             <p>{errors.email?.message}</p>
           </FormInputWrapper>
-          <FormInputWrapper>
+          <FormInputWrapper id="password">
             <StyledInput
               {...register('password', { autoComplete: 'off' })}
               type={isPasswordVisible ? 'text' : 'password'}

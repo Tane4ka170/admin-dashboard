@@ -77,6 +77,7 @@ export const StyledForm = styled.form`
 
 export const FormInputWrapper = styled.div`
   position: relative;
+
   p {
     position: absolute;
     top: 46px;
@@ -89,7 +90,6 @@ export const FormInputWrapper = styled.div`
     margin-block: ${theme.spacing(7)} ${theme.spacing(20)};
   }
 `;
-
 export const StyledInput = styled.input`
   position: relative;
   padding: ${theme.spacing(6.5)} ${theme.spacing(9)};
