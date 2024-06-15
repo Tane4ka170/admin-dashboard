@@ -44,6 +44,12 @@ export const Logo = styled.img`
   }
 `;
 
+export const PageTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow it to take available space */
+`;
+
 export const PageTitle = styled.h2`
   font-size: 24px;
   font-weight: 600;
@@ -58,7 +64,6 @@ export const PageSubtitle = styled.h3`
 `;
 
 export const LogoutButton = styled.button`
-  margin-inline-start: auto;
   background-color: ${theme.colors.primary};
   border-radius: ${theme.radii.xl};
   inline-size: 44px;
@@ -67,6 +72,8 @@ export const LogoutButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: background-color ${theme.transition};
+  position: relative;
+  margin-left: auto; /* Allow it to move to the right automatically */
 
   @media (width < 1440px) {
     display: none;
@@ -74,10 +81,37 @@ export const LogoutButton = styled.button`
 
   &:is(:hover, :focus) {
     background-color: ${theme.colors.primaryhover};
+
+    + div {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   svg {
     inline-size: 16px;
     block-size: 16px;
   }
+`;
+
+export const Tooltip = styled.div`
+  visibility: hidden;
+  opacity: 0;
+  background-color: ${theme.colors.tablehead};
+  color: ${theme.colors.main};
+  text-align: center;
+  border-radius: ${theme.radii.s};
+  padding: ${theme.spacing(2)};
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: ${theme.spacing(1)};
+  transition: visibility 0s, opacity 0.2s linear;
+`;
+
+export const LogoutContainer = styled.div`
+  position: relative;
+  display: inline-block;
 `;

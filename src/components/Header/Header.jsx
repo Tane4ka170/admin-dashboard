@@ -8,13 +8,15 @@ import {
   MenuButton,
   PageSubtitle,
   PageTitle,
+  Tooltip,
+  PageTitleContainer,
+  LogoutContainer,
 } from './Header.styled';
 import { useAuth } from '../../hooks/useAuth';
 import { signOutUser } from '../../redux/auth/authOperations';
 import logo from '../../assets/logo.png';
 import sprite from '../../assets/sprite.svg';
 import Sidebar from '../Sidebar/Sidebar';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const pageTitleMap = {
   '/dashboard': 'Dashboard',
@@ -65,23 +67,20 @@ const Header = () => {
       <NavLink to="/">
         <Logo src={logo} alt="logo" />
       </NavLink>
-      <div>
+      <PageTitleContainer>
         <PageTitle>Medicine Store</PageTitle>
         <PageSubtitle>
           {pageTitle} | {user.email}
         </PageSubtitle>
-      </div>
-      <div style={{ position: 'relative', display: 'inline-block' }}>
+      </PageTitleContainer>
+      <LogoutContainer>
         <LogoutButton type="button" onClick={handleLogout}>
           <svg>
             <use href={`${sprite}#icon-logout`} />
           </svg>
         </LogoutButton>
-        <div data-tip="Leaving already?" data-for="logoutTooltip">
-          Leaving already?
-        </div>
-      </div>
-      <ReactTooltip id="logoutTooltip" place="top" effect="solid" />
+        <Tooltip>Leaving already?</Tooltip>
+      </LogoutContainer>
     </HeaderContainer>
   );
 };
