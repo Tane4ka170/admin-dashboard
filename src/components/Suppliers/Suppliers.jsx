@@ -63,12 +63,15 @@ export const Suppliers = () => {
               icon={changeButton ? false : true}
               prop={changeButton ? 'Reset' : 'Filter'}
               $variant={changeButton ? 'add-sup' : 'filter'}
+              handleClick={() => {}}
             />
           </FormWrapper>
           <Button
             prop="Add a new suppliers"
             $variant="add-sup"
-            onClick={openModal}
+            handleClick={() => {
+              openModal();
+            }}
           />
         </FormContainer>
         <TableOfSuppliers />
