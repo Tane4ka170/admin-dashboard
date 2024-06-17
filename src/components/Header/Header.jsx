@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   HeaderContainer,
   Logo,
@@ -37,11 +37,17 @@ const Header = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleLogout = () => {
     dispatch(signOutUser());
-    navigate('/login');
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);

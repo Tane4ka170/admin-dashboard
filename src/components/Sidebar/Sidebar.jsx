@@ -1,7 +1,7 @@
-import { signOutUser } from '../../redux/auth/authOperations';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { signOutUser } from '../../redux/auth/authOperations';
 import sprite from '../../assets/sprite.svg';
 import {
   MenuLogoutButton,
@@ -12,11 +12,17 @@ import {
 const Sidebar = ({ onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleLogout = () => {
     dispatch(signOutUser());
-    navigate('/login');
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
 
   const menuItems = [
     { to: '/dashboard', icon: 'icon-dashboard', label: 'Dashboard' },
