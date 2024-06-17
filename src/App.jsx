@@ -1,20 +1,21 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { getUserInfo } from './redux/auth/authOperations';
 import Loader from './components/Loader/Loader';
 import { Layout } from './components/Layout/Layout';
-import RegisterPage from './pages/RegisterPage';
 import { AuthRoute } from './hocs/AuthRoute';
-import LoginPage from './pages/LoginPage';
 import { PrivateRoute } from './hocs/PrivateRoute';
-import DashboardPage from './pages/DashboardPage';
-import OrderPage from './pages/OrderPage';
-import ProductsPage from './pages/ProductsPage';
-import CustomersPage from './pages/CustomersPage';
-import SuppliersPage from './pages/SuppliersPage';
-import NotFoundPage from './pages/NotFoundPage';
+
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const OrderPage = lazy(() => import('./pages/OrderPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
+const CustomersPage = lazy(() => import('./pages/CustomersPage'));
+const SuppliersPage = lazy(() => import('./pages/SuppliersPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
