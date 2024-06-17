@@ -8,7 +8,6 @@ import {
   NavigationContainer,
   NavigationLink,
 } from './Sidebar.styled';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const Sidebar = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -31,26 +30,23 @@ const Sidebar = ({ onClose }) => {
     <NavigationContainer>
       <ul onClick={onClose}>
         {menuItems.map(({ to, icon, label }) => (
-          <li key={to} data-tip={label} data-for={`tooltip-${icon}`}>
+          <li key={to} className="tooltip-container">
             <NavigationLink to={to}>
               <svg>
                 <use href={`${sprite}#${icon}`} />
               </svg>
             </NavigationLink>
-            <ReactTooltip id={`tooltip-${icon}`} place="right" effect="solid" />
+            <span className="tooltip-text">{label}</span>
           </li>
         ))}
       </ul>
-      <div
-        data-tip="You are about to leave the profile."
-        data-for="logoutTooltip"
-      >
+      <div className="tooltip-container">
         <MenuLogoutButton onClick={handleLogout}>
           <svg>
             <use href={`${sprite}#icon-logout`} />
           </svg>
         </MenuLogoutButton>
-        <ReactTooltip id="logoutTooltip" place="right" effect="solid" />
+        <span className="tooltip-text">Logout</span>
       </div>
     </NavigationContainer>
   );
