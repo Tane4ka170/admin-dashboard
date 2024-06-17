@@ -10,7 +10,6 @@ import { App } from './App';
 import { GlobalStyle } from './GlobalStyle';
 import { theme } from './theme';
 import { Provider } from 'react-redux';
-import 'react-datepicker/dist/react-datepicker.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
