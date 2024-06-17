@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { format } from 'date-fns';
+import { parseISO } from 'date-fns';
 import * as yup from 'yup';
 import { createSupplier } from '../../../redux/pharmacy/pharmacyOperations';
 import {
@@ -18,7 +18,10 @@ const supplierSchema = yup.object({
   name: yup.string().trim().required('Suppliers is required field'),
   address: yup.string().trim().required('Address is required field'),
   suppliers: yup.string().trim().required('Company is required field'),
-  date: yup.string().required('Delivery is required field'),
+  date: yup
+    .date()
+    .required('Delivery is required field')
+    .typeError('Invalid date format'),
   amount: yup.string().required('Amount is required field'),
   status: yup
     .string()
@@ -96,10 +99,10 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
                   name={field.name}
                   onBlur={field.onBlur}
                   placeholder="Delivery date"
-                  value={field.value ? format(field.value, dateFormat) : ''}
-                  format={dateFormat}
+                  selected={field.value ? parseISO(field.value) : null}
+                  dateFormat={dateFormat}
                   onChange={date => {
-                    field.onChange(date ? date.valueOf() : null);
+                    field.onChange(date ? date.toISOString() : null);
                   }}
                 />
               );
