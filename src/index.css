@@ -115,19 +115,21 @@
   color: #ffffff !important;
 }
 
-.react-datepicker {
+.ant-picker-panel-layout {
   background-color: #59b17a;
 }
 
-.react-datepicker__day {
+.ant-picker-cell-in-view .ant-picker-cell-inner {
   color: #f9f9f9;
 }
 
-.react-datepicker__day--today {
+.ant-picker-dropdown
+  .ant-picker-cell-in-view.ant-picker-cell-today
+  .ant-picker-cell-inner::before {
   border: 2px solid #e85050;
 }
 
-.react-datepicker__input-container input:hover {
+:where(.css-dev-only-do-not-override-1okl62o).ant-picker-outlined:hover {
   border-color: #1d1e211a;
   box-shadow: none;
 }

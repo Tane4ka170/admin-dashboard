@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { format } from 'date-fns';
 import * as yup from 'yup';
@@ -100,7 +99,7 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
                   value={field.value ? format(field.value, dateFormat) : ''}
                   format={dateFormat}
                   onChange={date => {
-                    field.onChange(date ? date.toISOString() : null);
+                    field.onChange(date ? date.valueOf() : null);
                   }}
                 />
               );
@@ -146,8 +145,4 @@ export const AddNewSuppliers = ({ onRequestClose }) => {
       </Form>
     </ModalContent>
   );
-};
-
-AddNewSuppliers.propTypes = {
-  onRequestClose: PropTypes.func,
 };

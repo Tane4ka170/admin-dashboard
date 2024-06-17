@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../theme';
-import ReactDatePicker from 'react-datepicker';
+import { DatePicker } from 'antd';
 
 export const ModalContent = styled.div`
   @media (width > 767px) {
@@ -42,7 +42,7 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const DatePickerStyled = styled(ReactDatePicker)`
+export const DatePickerStyled = styled(DatePicker)`
   cursor: pointer;
   position: relative;
   padding: ${theme.spacing(5.5)} ${theme.spacing(7)};
