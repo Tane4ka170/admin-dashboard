@@ -18,6 +18,7 @@ import {
   LogoContainer,
   StyledForm,
   StyledInput,
+  StyledLink,
   TogglePasswordButton,
 } from './Auth.styled';
 import Button from 'components/SharedComponents/Button/Button';
@@ -114,6 +115,9 @@ export const RegisterForm = () => {
           <Button prop="Register" $variant="login">
             Register
           </Button>
+          <StyledLink to="/login">
+            Already have an account? Login now!
+          </StyledLink>
         </StyledForm>
       </FormContainer>
       <BackgroundImage />
