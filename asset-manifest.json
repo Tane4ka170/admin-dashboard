@@ -1,7 +1,23 @@
 {
   "files": {
-    "main.css": "/admin-dashboard/static/css/main.9668a7c6.css",
-    "main.js": "/admin-dashboard/static/js/main.3188a190.js",
+    "main.css": "/admin-dashboard/static/css/main.b4a11bbd.css",
+    "main.js": "/admin-dashboard/static/js/main.3a685f75.js",
+    "static/js/188.4a550c5b.chunk.js": "/admin-dashboard/static/js/188.4a550c5b.chunk.js",
+    "static/js/164.edd98701.chunk.js": "/admin-dashboard/static/js/164.edd98701.chunk.js",
+    "static/js/181.82c7f3a1.chunk.js": "/admin-dashboard/static/js/181.82c7f3a1.chunk.js",
+    "static/js/424.d7622706.chunk.js": "/admin-dashboard/static/js/424.d7622706.chunk.js",
+    "static/js/453.cc16f437.chunk.js": "/admin-dashboard/static/js/453.cc16f437.chunk.js",
+    "static/js/592.a7c783c8.chunk.js": "/admin-dashboard/static/js/592.a7c783c8.chunk.js",
+    "static/js/726.ce20fc0b.chunk.js": "/admin-dashboard/static/js/726.ce20fc0b.chunk.js",
+    "static/js/689.5c01253f.chunk.js": "/admin-dashboard/static/js/689.5c01253f.chunk.js",
+    "static/js/134.74238eb6.chunk.js": "/admin-dashboard/static/js/134.74238eb6.chunk.js",
+    "static/js/143.a421380c.chunk.js": "/admin-dashboard/static/js/143.a421380c.chunk.js",
+    "static/js/37.b72b03cc.chunk.js": "/admin-dashboard/static/js/37.b72b03cc.chunk.js",
+    "static/js/206.aa0d7285.chunk.js": "/admin-dashboard/static/js/206.aa0d7285.chunk.js",
+    "static/js/495.9b68ad39.chunk.js": "/admin-dashboard/static/js/495.9b68ad39.chunk.js",
+    "static/css/544.9e9c391f.chunk.css": "/admin-dashboard/static/css/544.9e9c391f.chunk.css",
+    "static/js/877.8caff574.chunk.js": "/admin-dashboard/static/js/877.8caff574.chunk.js",
+    "static/js/734.f1cf91e2.chunk.js": "/admin-dashboard/static/js/734.f1cf91e2.chunk.js",
     "static/media/Inter-SemiBold.ttf": "/admin-dashboard/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
     "static/media/Inter-Medium.ttf": "/admin-dashboard/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
     "static/media/Inter-Regular.ttf": "/admin-dashboard/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
@@ -12,11 +28,27 @@
     "static/media/sprite.svg": "/admin-dashboard/static/media/sprite.538b0f7a9df53e307037f98cd58c8e68.svg",
     "index.html": "/admin-dashboard/index.html",
     "static/media/not-found.svg": "/admin-dashboard/static/media/not-found.39e6a99874eca3710f56a8cebffe1b0d.svg",
-    "main.9668a7c6.css.map": "/admin-dashboard/static/css/main.9668a7c6.css.map",
-    "main.3188a190.js.map": "/admin-dashboard/static/js/main.3188a190.js.map"
+    "main.b4a11bbd.css.map": "/admin-dashboard/static/css/main.b4a11bbd.css.map",
+    "main.3a685f75.js.map": "/admin-dashboard/static/js/main.3a685f75.js.map",
+    "188.4a550c5b.chunk.js.map": "/admin-dashboard/static/js/188.4a550c5b.chunk.js.map",
+    "164.edd98701.chunk.js.map": "/admin-dashboard/static/js/164.edd98701.chunk.js.map",
+    "181.82c7f3a1.chunk.js.map": "/admin-dashboard/static/js/181.82c7f3a1.chunk.js.map",
+    "424.d7622706.chunk.js.map": "/admin-dashboard/static/js/424.d7622706.chunk.js.map",
+    "453.cc16f437.chunk.js.map": "/admin-dashboard/static/js/453.cc16f437.chunk.js.map",
+    "592.a7c783c8.chunk.js.map": "/admin-dashboard/static/js/592.a7c783c8.chunk.js.map",
+    "726.ce20fc0b.chunk.js.map": "/admin-dashboard/static/js/726.ce20fc0b.chunk.js.map",
+    "689.5c01253f.chunk.js.map": "/admin-dashboard/static/js/689.5c01253f.chunk.js.map",
+    "134.74238eb6.chunk.js.map": "/admin-dashboard/static/js/134.74238eb6.chunk.js.map",
+    "143.a421380c.chunk.js.map": "/admin-dashboard/static/js/143.a421380c.chunk.js.map",
+    "37.b72b03cc.chunk.js.map": "/admin-dashboard/static/js/37.b72b03cc.chunk.js.map",
+    "206.aa0d7285.chunk.js.map": "/admin-dashboard/static/js/206.aa0d7285.chunk.js.map",
+    "495.9b68ad39.chunk.js.map": "/admin-dashboard/static/js/495.9b68ad39.chunk.js.map",
+    "544.9e9c391f.chunk.css.map": "/admin-dashboard/static/css/544.9e9c391f.chunk.css.map",
+    "877.8caff574.chunk.js.map": "/admin-dashboard/static/js/877.8caff574.chunk.js.map",
+    "734.f1cf91e2.chunk.js.map": "/admin-dashboard/static/js/734.f1cf91e2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9668a7c6.css",
-    "static/js/main.3188a190.js"
+    "static/css/main.b4a11bbd.css",
+    "static/js/main.3a685f75.js"
   ]
 }
