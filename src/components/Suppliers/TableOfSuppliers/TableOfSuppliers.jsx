@@ -19,6 +19,10 @@ import { StatusIndicator } from 'components/SharedComponents/StatusIndicator/Sta
 import { BtnOvalChange } from './TableOfSuppliers.styled';
 import { ModalWrapper } from 'components/Modal/ModalWrapper';
 import { EditSuppliers } from 'components/Modal/EditSuppliers/EditSuppliers';
+import {
+  TooltipText,
+  TooltipWrapper,
+} from 'components/Products/ProductInventory/ProductInventory.styled';
 
 export const TableOfSuppliers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,14 +90,15 @@ export const TableOfSuppliers = () => {
                   />
                 </td>
                 <td>
-                  <ReactTooltip content="Click to edit" trigger="hover">
+                  <TooltipWrapper>
                     <BtnOvalChange onClick={() => openModal(item)}>
                       <svg>
                         <use href={`${sprite}#icon-edit`} />
                       </svg>
                       <span>Edit</span>
                     </BtnOvalChange>
-                  </ReactTooltip>
+                    <TooltipText>Click to edit</TooltipText>
+                  </TooltipWrapper>
                 </td>
               </tr>
             ))}
