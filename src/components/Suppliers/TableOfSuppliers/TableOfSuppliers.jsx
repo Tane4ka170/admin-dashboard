@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { format } from 'date-fns';
 import sprite from '../../../assets/sprite.svg';
 import { selectSuppliers } from '../../../redux/pharmacy/pharmacySelectors';
