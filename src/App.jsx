@@ -8,7 +8,6 @@ import { Layout } from './components/Layout/Layout';
 import { AuthRoute } from './hocs/AuthRoute';
 import { PrivateRoute } from './hocs/PrivateRoute';
 
-const RegisterPage = lazy(() => import('./pages/RegisterPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 const OrderPage = lazy(() => import('./pages/OrderPage'));
@@ -32,12 +31,6 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate replace to="/login" />} />
-          <Route
-            path="/register"
-            element={
-              <AuthRoute redirectTo="/dashboard" component={<RegisterPage />} />
-            }
-          />
           <Route
             path="/login"
             element={
