@@ -22,7 +22,10 @@ const supplierSchema = yup.object({
     .date()
     .required('Delivery is required field')
     .typeError('Invalid date format'),
-  amount: yup.string().required('Amount is required field'),
+  amount: yup
+    .number()
+    .typeError('Amount must be a number')
+    .required('Amount is required field'),
   status: yup
     .string()
     .oneOf(['Active', 'Deactive'], 'Invalid Job Type')

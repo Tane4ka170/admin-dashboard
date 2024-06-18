@@ -20,7 +20,10 @@ const supplierSchema = yup.object({
   address: yup.string().trim(),
   suppliers: yup.string().trim(),
   date: yup.date(),
-  amount: yup.string(),
+  amount: yup
+    .number()
+    .typeError('Amount must be a number')
+    .required('Amount is required field'),
   status: yup.string(),
 });
 
