@@ -81,7 +81,7 @@ export const TableOfSuppliers = () => {
                 <td>{item.address}</td>
                 <td>{item.suppliers}</td>
                 <td>{format(new Date(item.date), 'MMMM d, yyyy')}</td>
-                <td>{item.amount}</td>
+                <td>৳ {item.amount}</td>
                 <td>
                   <StatusIndicator
                     prop={capitalizeFirstLetter(item.status)}
