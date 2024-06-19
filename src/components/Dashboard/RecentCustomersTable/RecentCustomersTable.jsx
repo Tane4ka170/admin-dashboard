@@ -72,7 +72,7 @@ const RecentCustomersTable = () => {
             {incomeExpenses?.map(item => (
               <tr key={item._id}>
                 <ImageCell>
-                  <CustomLabel type={item.type} variant={item.type} />
+                  <CustomLabel $variant={item.type} prop={item.type} />
                 </ImageCell>
                 <SecondCol>{item.name}</SecondCol>
                 <td
